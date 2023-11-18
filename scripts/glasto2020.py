@@ -26,6 +26,9 @@ headless=False
 # refresh rate - seconds
 refreshrate = 0.0001
 
+# set user-data directory
+user_data_dir = "c:\\important\\chris\\coding\\python\\glastoselenium\\user_data\\1"
+
 # try one of these URLS
 # DEPOSIT_20_URL = "https://glastonbury.seetickets.com/event/glastonbury-2024-deposits/worthy-farm/3500000"
 # DEPOSIT_20_URL = "https://glastonbury.seetickets.com/event/glastonbury-2024/worthy-farm/3500001"
@@ -97,7 +100,7 @@ def attemptconnection(client, url):
 s = gl.Service(gl.DRIVER_PATH)
 c = gl.Twenty20(s, timeout=4, refreshrate=refreshrate, verbose=False, 
     disablejs=disablejs, incognito=incognito, disableimages=disableimages, 
-    cache=cache, headless=headless, proxy=proxy)
+    cache=cache, headless=headless, proxy=proxy, user_data_dir=user_data_dir)
 attemptconnection(c, DEPOSIT_20_URL)
 
 # backup sleep 

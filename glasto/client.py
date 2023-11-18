@@ -33,7 +33,7 @@ class Client(object):
 
     def __init__(self, service, timeout=2.0, verbose=False, 
         disablejs=False, disableimages=True, disablecookies=False,
-        incognito=False, cache=None, headless=False, proxy=None):
+        incognito=False, cache=None, headless=False, proxy=None, user_data_dir=None):
         self._service = service
 
         self.client = None  # webdriver.Remote(service.url())
@@ -67,6 +67,9 @@ class Client(object):
 
         if headless:
             self._service.options.add_argument("--headless")
+
+        if user_data_dir:
+            self._service.options.add_argument(f"--user-data-dir={user_data_dir}")
 
     def establishconnection(self, url, scalefactor=1.1,
                             mintimeout=1.0, maxiterations=1000, phrases_to_check=[],
