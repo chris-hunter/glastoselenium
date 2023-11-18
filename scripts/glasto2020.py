@@ -27,19 +27,15 @@ headless=False
 refreshrate = 0.0001
 
 # try one of these URLS
-# DEPOSIT_20_URL = "https://glastonbury.seetickets.com/event/glastonbury-2020-deposits/worthy-farm/1300000"
-# DEPOSIT_20_URL = "https://glastonbury.seetickets.com/event/addregistrations"
-# DEPOSIT_20_URL = "https://glastonbury.seetickets.com/event/glastonbury-2020/worthy-farm/1300001"
-# DEPOSIT_20_URL = "https://glastonbury.seetickets.com/event/glastonbury-2020-ticket-coach-travel-deposits/worthy-farm/1450012"
-# DEPOSIT_20_URL = "https://glastonbury.seetickets.com/event/glastonbury-2020-ticket-coach-travel-deposits/worthy-farm/1450013"
-# DEPOSIT_20_URL = "https://glastonbury.seetickets.com/event/glastonbury-2020-deposits/worthy-farm/1450000"
+# DEPOSIT_20_URL = "https://glastonbury.seetickets.com/event/glastonbury-2024-deposits/worthy-farm/3500000"
+# DEPOSIT_20_URL = "https://glastonbury.seetickets.com/event/glastonbury-2024/worthy-farm/3500001"
 DEPOSIT_20_URL = "https://glastonbury.seetickets.com/"
 
 #PHRASES_TO_CHECK = [gl.Twenty20.REGISTRATION_PHRASE]
 PHRASES_TO_CHECK = ['Enter registration details']
 
 HOLDING_PHRASE = 'held at this page'
-TRIGGER_TIME = datetime(2023, 11, 18, 21, 26)
+TRIGGER_TIME = datetime(2023, 11, 19, 9, 0)
 # first is lead booker
 REG_DETAILS=[
     {
