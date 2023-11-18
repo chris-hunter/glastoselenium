@@ -39,7 +39,7 @@ DEPOSIT_20_URL = "https://glastonbury.seetickets.com/"
 PHRASES_TO_CHECK = ['Enter registration details']
 
 HOLDING_PHRASE = 'held at this page'
-TRIGGER_TIME = datetime(2023, 11, 18, 12, 39)
+TRIGGER_TIME = datetime(2023, 11, 18, 21, 26)
 # first is lead booker
 REG_DETAILS=[
     {

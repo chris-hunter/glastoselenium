@@ -83,6 +83,7 @@ class Client(object):
                     time.sleep(wait_time.total_seconds())
                     print(datetime.now())
                 self.client.get(url)
+                self.client.add_cookie({'name': 'gdprAccept', 'value': 'true'})
                 self.content = self.client.page_source
                 self._refreshcheck(url, phrases_to_check, holding_phrase)
                 return True
