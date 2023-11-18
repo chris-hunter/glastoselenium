@@ -1,3 +1,4 @@
+from datetime import datetime
 import time
 from selenium import webdriver
 # use as a service to save start up and close down effort for many instances
@@ -69,12 +70,18 @@ class Client(object):
 
     def establishconnection(self, url, scalefactor=1.1,
                             mintimeout=1.0, maxiterations=1000, phrases_to_check=[],
-                            holding_phrase='held on this page'):
+                            holding_phrase='held on this page',
+                            trigger_time = datetime(2023, 11, 19, 9, 0)):
         self.attempts = 0
         while self.attempts < maxiterations:
             self.client = webdriver.Remote(self._service.url(), options=self._service.options)
             self.client.set_page_load_timeout(self.timeout)
             try:
+                # Pause until start time
+                if datetime.now() < trigger_time:
+                    wait_time = trigger_time - datetime.now()
+                    time.sleep(wait_time.total_seconds())
+                    print(datetime.now())
                 self.client.get(url)
                 self.content = self.client.page_source
                 self._refreshcheck(url, phrases_to_check, holding_phrase)
@@ -88,7 +95,7 @@ class Client(object):
                 self.attempts += 1
         return False
 
-    def _refreshcheck(self, url, phrases_to_check):
+    def _refreshcheck(self, url, phrases_to_check, holding_phrase):
         pass
 
     def clickbutton(self, substr):
@@ -147,6 +154,8 @@ class ScoutClient(Client):
             # self.client.get(link)
             snap(str(count))
             print("level {} link {} url: {}".format(level, count, link))
+            with open('links.txt', 'a') as links_file:
+                print(link, file=links_file)
             self._levelsearch(level+1, maxlevels=maxlevels)
 
         # return to base

@@ -3,6 +3,7 @@
 import os
 import time
 import glasto as gl
+from datetime import datetime
 
 # incognito??
 incognito = True
@@ -38,7 +39,7 @@ DEPOSIT_20_URL = "https://glastonbury.seetickets.com/"
 PHRASES_TO_CHECK = ['Enter registration details']
 
 HOLDING_PHRASE = 'held at this page'
-
+TRIGGER_TIME = datetime(2023, 11, 18, 12, 39)
 # first is lead booker
 REG_DETAILS=[
     {
@@ -60,7 +61,7 @@ if len(REG_DETAILS) > 6:
         "Cannot accept more than 1 + 5 registration details!")
 
 def attemptconnection(client, url):
-    if client.establishconnection(url, phrases_to_check=PHRASES_TO_CHECK, holding_phrase=HOLDING_PHRASE):
+    if client.establishconnection(url, phrases_to_check=PHRASES_TO_CHECK, holding_phrase=HOLDING_PHRASE, trigger_time=TRIGGER_TIME):
         print("success")
         print(client.attempts)
         try:
